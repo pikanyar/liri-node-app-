@@ -1,10 +1,11 @@
 require("dotenv").config();
 
 var keys = require("./keys.js");
-var spotify = new Spotify(keys.spotify);
-
 //include the Spotify npm package
 var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
+
+console.log('keys:', keys)
 // Grab the movieName which will always be the third node argument.
 var songName = process.argv[2];
 
@@ -37,9 +38,9 @@ node - spotify - api.get(queryUrl).then(
     });*/
 
 var spotify = new Spotify({
-    id: < 63f44b3821444df5b4ed7a6b99aafe8d>,
-    secret: < 18508c2f64dd49bf8e5c466ddf8f4a55 >
-            });
+    id: '63f44b3821444df5b4ed7a6b99aafe8d',
+    secret: '18508c2f64dd49bf8e5c466ddf8f4a55'
+});
 
 spotify.search({ type: 'track', query: 'All the Small Things' }, function (err, data) {
     if (err) {
