@@ -1,54 +1,48 @@
 require("dotenv").config();
-
-var keys = require("./keys.js");
+let keys = require("./keys.js");
 //include the Spotify npm package
-var Spotify = require('node-spotify-api');
-var spotify = new Spotify(keys.spotify);
-
-console.log('keys:', keys)
-// Grab the movieName which will always be the third node argument.
-var songName = process.argv[2];
-
-/*var queryUrl = "http://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
-
-console.log(queryUrl);
-node - spotify - api.get(queryUrl).then(
-    function (response) {
-        console.log("Release Year: " + response.data.Year);
-    })
-    .catch(function (error) {
-        if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log("---------------Data---------------");
-            console.log(error.response.data);
-            console.log("---------------Status---------------");
-            console.log(error.response.status);
-            console.log("---------------Status---------------");
-            console.log(error.response.headers);
-        } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an object that comes back with details pertaining to the error that occurred.
-            console.log(error.request);
-        } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
-        }
-        console.log(error.config);
-    });*/
-
-var spotify = new Spotify({
-    id: '63f44b3821444df5b4ed7a6b99aafe8d',
-    secret: '18508c2f64dd49bf8e5c466ddf8f4a55'
-});
-
-spotify.search({ type: 'track', query: 'All the Small Things' }, function (err, data) {
-    if (err) {
-        return console.log('Error occurred: ' + err);
+let axios = require('axios');
+let fs = require('fs');
+let moment = require('moment');
+const spotify = require("./apis/spotify");
+const omdb = require("./apis/omdb");
+const concert = require("./apis/concert");
+const doThis = require("./do");
+const colors = require("colors")
+// Store all of the arguments in an array
+var nodeArgs = process.argv;
+// Create an empty variable for holding the movie/song/concert name
+var name = "";
+// Loop through all the words in the node argument
+for (var i = 3; i < nodeArgs.length; i++) {
+    if (i > 3 && i < nodeArgs.length) {
+        name = name + " " + nodeArgs[i];
+    } else {
+        name += nodeArgs[i];
     }
+}
 
-    console.log(data);
-});
 
-//Client ID 63f44b3821444df5b4ed7a6b99aafe8d
-//Client Secret 18508c2f64dd49bf8e5c466ddf8f4a55
+function run(term) {
+    switch (term) {
+        case "movie-this":
+            omdb.search(name);
+            break;
+        case "spotify-this":
+            spotify.search_track(name);
+            break;
+        case "concert-this":
+            concert.search(name);
+            break;
+        case "do-what-it-says":
+            doThis.search(name);
+            break;
+        default:
+            console.log("No search found");
+            break;
+    }
+}
+
+run(process.argv[2])
+
+module.exports.run = run
