@@ -1,7 +1,8 @@
 //Using the Spotify api and getting the key from keys.js
 const keys = require("../keys.js")
 let Spotify = require('node-spotify-api');
-// let spotify = new Spotify(keys.spotify);
+
+//let spotify = new Spotify(keys.spotify);
 const colors = require("colors")
 
 //SPOTIFY
@@ -32,9 +33,5 @@ const search_track = (search) => {
         });
 }
 
-/*
-module.exports = {
-    search_track
-}
-*/
+
 module.exports.search_track = search_track
