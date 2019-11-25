@@ -6,7 +6,7 @@ let Spotify = require('node-spotify-api');
 const colors = require("colors")
 
 //SPOTIFY
-var spotify = new Spotify({
+let spotify = new Spotify({
     id: '63f44b3821444df5b4ed7a6b99aafe8d',
     secret: '18508c2f64dd49bf8e5c466ddf8f4a55'
 });
@@ -21,10 +21,10 @@ const search_track = (search) => {
 
             for (let i = 0; i < response.tracks.items.length; i++) {
                 console.log(colors.rainbow("----------------------------"))
-                console.log(`Track: ${response.tracks.items[i].name}`)
+                console.log(`Track: ${response.tracks.items[i].name}`);
                 console.log(response.tracks.items[i].artists[0].name);
-                console.log(response.tracks.items[i].preview_url ? response.tracks.items[i].preview_url : "I do not see it")
-                console.log(response.tracks.items[i].album.name)
+                console.log(response.tracks.items[i].preview_url ? response.tracks.items[i].preview_url : "I do not see it");
+                console.log(response.tracks.items[i].album.name);
                 console.log(colors.rainbow("----------------------------"))
             }
         })
@@ -34,4 +34,4 @@ const search_track = (search) => {
 }
 
 
-module.exports.search_track = search_track
+module.exports.search_track = search_track;

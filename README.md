@@ -23,7 +23,7 @@ This will output the following information to your terminal/bash window:
 
 2. node liri.js spotify-this-song '<song name here>'
 
-This will show the following information about the song in your terminal/bash window
+    This will show the following information about the song in your terminal/bash window
 
 * Artist
 * The song's name
@@ -53,6 +53,12 @@ LIRI use the commands listed in random.txt and then call one of LIRI's functions
 * APIs used
 * GitHub
 
+
+![GitHub Logo](/images/Screenshot1.png)
+
+![GitHub Logo](/images/Screenshot2.png)
+
+![GitHub Logo](/images/Screenshot3.png)
 
 
 

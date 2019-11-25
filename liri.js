@@ -45,5 +45,5 @@ function run(term) {
 
 run(process.argv[2])
 
-module.exports.run = run
+module.exports.run = run;
 //module.exports.nodeArgs = nodeArgs
