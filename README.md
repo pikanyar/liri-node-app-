@@ -8,7 +8,7 @@ Search Spotify for songs, Bands in town for concerts and OMBD for movies.
 
 ## Commands to run LIRI
 
-1. node liri.js movie-this '<movie name here>'
+1. node liri.js movie-this 'movie name'
 
 This will output the following information to your terminal/bash window:
 
@@ -21,7 +21,7 @@ This will output the following information to your terminal/bash window:
 * Plot of the movie
 * Actors in the movie
 
-2. node liri.js spotify-this-song '<song name here>'
+2. node liri.js spotify-this-song 'song name'
 
     This will show the following information about the song in your terminal/bash window
 
@@ -32,7 +32,7 @@ This will output the following information to your terminal/bash window:
 
 If no song is provided then your program will default to "The Sign" by Ace of Base.
 
-3. node liri.js concert-this <artist/band name here>
+3. node liri.js concert-this 'artist/band name'
 
 This will search the Bands in Town Artist Events API for an artist and render the following information about each event to the terminal:
 
@@ -59,6 +59,10 @@ LIRI use the commands listed in random.txt and then call one of LIRI's functions
 ![GitHub Logo](/images/Screenshot2.png)
 
 ![GitHub Logo](/images/Screenshot3.png)
+
+
+
+
 
 
 
